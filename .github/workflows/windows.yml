@@ -1,0 +1,17 @@
+name: Windows Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Check Windows
+        run: |
+          Write-Output "Windows runner is working"
+          Get-ComputerInfo |
+            Select-Object WindowsProductName, WindowsVersion
+
+      - name: Check Python
+        run: python --version
